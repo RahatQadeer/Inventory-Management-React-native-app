@@ -6,37 +6,37 @@ import { FontAwesome } from '@expo/vector-icons';
 export default function SplashScreen({ navigation }) {
   return (
     <ImageBackground
-      source={require("./assets/background.jpg")} // Replace with your image path
+      source={require("./assets/background.jpg")} 
       style={styles.background}
     >
    
       <View style={styles.container}>
         <Image 
-          source={require("./assets/icon.png")} // Replace with your logo/image path
+          source={require("./assets/icon.png")} 
           style={styles.logo} 
         />
 
         <TouchableOpacity
           style={styles.button} 
-          onPress={() => { navigation.navigate('SignInUp'); }} // Navigate to SignInUpScreen
+          onPress={() => { navigation.navigate('SignInUp'); }} 
         >
           <Text style={styles.buttonText}>Get Started</Text>
           <FontAwesome 
-            name="arrow-right" // Right arrow icon
-            size={15}           // Icon size
-            color="white"       // Icon color
-            style={styles.icon} // Style for the icon
+            name="arrow-right" 
+            size={15}          
+            color="white"       
+            style={styles.icon} 
           />
         </TouchableOpacity>
       </View>
     </ImageBackground>
   );
 }
-
+// **************** Styling for Splash Screen **************** //
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: "cover", // Ensures the background image covers the entire screen
+    resizeMode: "cover", 
   },
  
   container: {
@@ -45,25 +45,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 250,  // Adjust size as needed
-    height: 250, // Adjust size as needed
+    width: 250,  
+    height: 250, 
     resizeMode: "contain",
   },
   button: {
     flexDirection: "row",
-    width: 200,   // Adjust the width of the button
-    height: 50,   // Adjust the height of the button
-    backgroundColor: "#ed5598", // Button background color
-    justifyContent: "center",   // Centers text vertically
-    alignItems: "center",     // Centers text horizontally
+    width: 200,   
+    height: 50,   
+    backgroundColor: "#ed5598", 
+    justifyContent: "center",   
+    alignItems: "center",    
     borderRadius: 40,   
-    top: 170,        // Optional: rounded corners
+    top: 170,       
   },
   buttonText: {
-    color: "white",   // Text color
-    fontSize: 18,     // Font size of the button text
+    color: "white",   
+    fontSize: 18,     
   },
   icon: {
-    marginLeft: 20, // Adds space between the text and icon
+    marginLeft: 20, 
   },
 });

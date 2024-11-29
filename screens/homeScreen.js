@@ -1,29 +1,53 @@
-
-
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Image,TouchableOpacity, Button, Modal, TextInput, ImageBackground } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import Svg, { Path } from 'react-native-svg';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  Button,
+  Modal,
+  TextInput,
+  ImageBackground,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import Svg, { Path } from "react-native-svg";
 
 export default function HomeScreen({ navigation }) {
-  const [userName, setUserName] = useState('Rahat '); // Default name
+  const [userName, setUserName] = useState("Beautiful");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [tempName, setTempName] = useState(userName); // Temporary name for input
-  const [searchTerm, setSearchTerm] = useState(''); // New state for search input
+  const [tempName, setTempName] = useState(userName);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const saveName = () => {
-    setUserName(tempName); // Update the displayed name
-    setIsModalVisible(false); // Close the modal
+    setUserName(tempName);
+    setIsModalVisible(false);
   };
 
   const handleSearch = (text) => {
-    setSearchTerm(text); // Update search term state
+    setSearchTerm(text);
   };
 
   const quickActions = [
-    { id: '1', name: 'Add Item', icon: 'add-circle-outline', route: 'Add Item' },
-    { id: '2', name: 'View All Items', icon: 'list-circle-outline', route: 'View Total Items' },
-    { id: '3', name: 'Reset Password', icon: 'person-circle-outline', route: 'Account' },
+    {
+      id: "1",
+      name: "Add Item",
+      icon: "add-circle-outline",
+      route: "Add Item",
+    },
+    {
+      id: "2",
+      name: "View All Items",
+      icon: "list-circle-outline",
+      route: "View Total Items",
+    },
+    {
+      id: "3",
+      name: "Reset Password",
+      icon: "person-circle-outline",
+      route: "Account",
+    },
   ];
 
   return (
@@ -31,7 +55,7 @@ export default function HomeScreen({ navigation }) {
       {/* Header Section */}
       <View style={styles.headerContainer}>
         <ImageBackground
-          source={require('../assets/homeback.jpg')} // Replace with your image path
+          source={require("../assets/homeback.jpg")}
           style={styles.background}
         >
           <View style={styles.header}>
@@ -56,18 +80,16 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
 
-             {/* Image Box Below Search Box */}
-             
-            <View style={styles.imageBox}>
-              <Image
-                source={require('../assets/hometop.png')} // Replace with your image path
-                style={styles.image}
-              />
-            </View>
-          
+          {/* Image Box Below Search Box */}
+
+          <View style={styles.imageBox}>
+            <Image
+              source={require("../assets/hometop.png")}
+              style={styles.image}
+            />
+          </View>
         </ImageBackground>
 
-        {/* Wave Shape */}
         <Svg
           height="20%"
           width="100%"
@@ -75,7 +97,7 @@ export default function HomeScreen({ navigation }) {
           style={styles.wave}
         >
           <Path
-            fill="#fff" // Adjust the wave color
+            fill="#fff"
             d="M0,224 C80,160 320,64 480,96 C640,128 720,256 960,288 C1200,320 1360,256 1440,224 L1440,320 L0,320 Z"
           />
         </Svg>
@@ -93,7 +115,11 @@ export default function HomeScreen({ navigation }) {
               placeholder="Enter your name"
             />
             <View style={styles.modalButtons}>
-              <Button title="Cancel" color="#FF3E7F" onPress={() => setIsModalVisible(false)} />
+              <Button
+                title="Cancel"
+                color="#FF3E7F"
+                onPress={() => setIsModalVisible(false)}
+              />
               <Button title="Save" onPress={saveName} />
             </View>
           </View>
@@ -120,30 +146,27 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
-
+// ********************* Styles ********************** //
 const styles = StyleSheet.create({
   container: {
-    // paddingTop:40,
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   headerContainer: {
-    // paddingTop: 40,
-    // top:50,
-    position: 'relative',
-    backgroundColor: '#FF3E7F', // Placeholder for gradient color
+    position: "relative",
+    backgroundColor: "#FF3E7F",
   },
   background: {
     height: 400,
   },
   wave: {
-    position: 'absolute',
-    bottom: -1, // Ensures wave aligns seamlessly with the content
+    position: "absolute",
+    bottom: -1,
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     paddingLeft: 35,
     paddingRight: 20,
     top: 40,
@@ -151,12 +174,12 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
   },
   welcome: {
     fontSize: 16,
-    color: '#fff',
+    color: "#fff",
   },
   actions: {
     marginHorizontal: 20,
@@ -164,77 +187,77 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
+    fontWeight: "bold",
+    color: "#333",
     marginBottom: 10,
     top: -30,
   },
   actionItem: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
     padding: 15,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 10,
     marginBottom: 25,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 3 },
     shadowRadius: 5,
     elevation: 3,
-    borderStartColor: 'pink',
+    borderStartColor: "pink",
     borderStartWidth: 8,
-    borderTopColor: 'pink',
+    borderTopColor: "pink",
     borderTopWidth: 9,
   },
   actionText: {
     marginLeft: 15,
     fontSize: 16,
-    color: '#333',
+    color: "#333",
   },
   modalContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalContent: {
-    width: '80%',
-    backgroundColor: '#fff',
+    width: "80%",
+    backgroundColor: "#fff",
     padding: 20,
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   modalTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
   },
   input: {
-    width: '100%',
+    width: "100%",
     padding: 10,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 5,
     marginBottom: 20,
   },
   modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
   },
   searchBoxContainer: {
     paddingHorizontal: 20,
-    marginTop: 60, // Adds spacing below the welcome text
+    marginTop: 60,
   },
   searchBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
     borderRadius: 10,
     paddingHorizontal: 10,
     height: 50,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
@@ -244,23 +267,21 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     marginLeft: 10,
-    color: '#333',
+    color: "#333",
   },
-  imageBoxContainer:{
-      position: 'absolute',
-      bottom: -20, // Adds spacing below the quick actions section
-      left: 20,
-      right: 20,
-      
+  imageBoxContainer: {
+    position: "absolute",
+    bottom: -20,
+    left: 20,
+    right: 20,
   },
-  
-  image:{
-    width: '60%',
-    height: '65%',
-    resizeMode: 'cover',
+
+  image: {
+    width: "60%",
+    height: "65%",
+    resizeMode: "cover",
     borderRadius: 10,
     left: 130,
-    top:0,
-  }
-})
-
+    top: 0,
+  },
+});

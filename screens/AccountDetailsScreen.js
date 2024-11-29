@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Alert, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { getAuth, reauthenticateWithCredential, EmailAuthProvider, updatePassword } from 'firebase/auth';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Alert,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import {
+  getAuth,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+  updatePassword,
+} from "firebase/auth";
 
 const EditAccountScreen = () => {
   // State to store the current password and the new password
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   // Handle the password change logic
   const handleChangePassword = async () => {
     // Check if the new password matches the confirm password
     if (newPassword !== confirmPassword) {
-      Alert.alert('Error', 'New password and confirm password do not match.');
+      Alert.alert("Error", "New password and confirm password do not match.");
       return;
     }
 
@@ -20,12 +33,15 @@ const EditAccountScreen = () => {
     const user = auth.currentUser;
 
     if (!user) {
-      Alert.alert('Error', 'No user is logged in.');
+      Alert.alert("Error", "No user is logged in.");
       return;
     }
 
     // Re-authenticate the user before changing the password
-    const credentials = EmailAuthProvider.credential(user.email, currentPassword);
+    const credentials = EmailAuthProvider.credential(
+      user.email,
+      currentPassword
+    );
     try {
       await reauthenticateWithCredential(user, credentials);
 
@@ -33,15 +49,15 @@ const EditAccountScreen = () => {
       await updatePassword(user, newPassword);
 
       // Success alert
-      Alert.alert('Success', 'Password changed successfully!');
-      
+      Alert.alert("Success", "Password changed successfully!");
+
       // Reset the input fields after successful change
-      setCurrentPassword('');
-      setNewPassword('');
-      setConfirmPassword('');
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
     } catch (error) {
       // Handle errors (e.g., wrong current password)
-      Alert.alert('Error', error.message);
+      Alert.alert("Error", error.message);
     }
   };
 
@@ -49,7 +65,7 @@ const EditAccountScreen = () => {
     <View style={styles.container}>
       {/* Image at the top */}
       <Image
-        source={require('../assets/pswrd.png')} // Replace with your image URL or local path
+        source={require("../assets/pswrd.png")} // Replace with your image URL or local path
         style={styles.image}
       />
 
@@ -94,45 +110,45 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#ffe6e6',
-    paddingTop: 90,  // Adjust padding for the image and title
+    backgroundColor: "#ffe6e6",
+    paddingTop: 90,
   },
   image: {
-    width: '60%',
-    height: 150,  // Adjust the height based on your image size
-    resizeMode: 'cover',
-    top: 10, // Adjust image scaling
+    width: "60%",
+    height: 150,
+    resizeMode: "cover",
+    top: 10,
     marginBottom: 20,
-    left: 60,  // Space between image and title
+    left: 60,
   },
   title: {
     fontSize: 24,
     marginBottom: 40,
-    textAlign: 'center',
+    textAlign: "center",
   },
   input: {
-    width: '92%',
+    width: "92%",
     height: 50,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 10,
     borderRadius: 10,
     marginBottom: 20,
     left: 10,
   },
   Btn: {
-    backgroundColor: '#ff99cc', // Button background color
+    backgroundColor: "#ff99cc",
     borderRadius: 10,
     padding: 10,
     marginTop: 10,
     marginBottom: 20,
-    width: '89%',
-    alignItems: 'center',
+    width: "89%",
+    alignItems: "center",
     left: 15,
   },
   BtnText: {
-    color: '#fff', // Text color
+    color: "#fff",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

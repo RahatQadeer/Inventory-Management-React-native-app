@@ -1,6 +1,5 @@
-// import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Expo icon library
+import { Ionicons } from '@expo/vector-icons'; 
 import styles from './styles';
 import React, { useState } from 'react';
 
@@ -38,27 +37,6 @@ const AuthScreen = ({ email, setEmail, password, setPassword, isLogin, setIsLogi
     />
   </TouchableOpacity>
 </View>
-
-      {/* <View style={styles.passwordContainer}>
-        <TextInput
-          style={[styles.input, { flex: 1 }]}
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Password"
-          secureTextEntry={!isPasswordVisible}
-        />
-        <TouchableOpacity
-          onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-          style={styles.eyeIcon}
-        >
-          <Ionicons
-            name={isPasswordVisible ? 'eye' : 'eye-off'}
-            size={24}
-            color="#777"
-          />
-        </TouchableOpacity>
-      </View> */}
-
       <View style={styles.buttonContainer}>
         <Button title={isLogin ? 'Sign In' : 'Sign Up'} onPress={handleAuthentication} color="#3498db" />
       </View>

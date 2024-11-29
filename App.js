@@ -1,44 +1,45 @@
+// Import essential libraries and components
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
 
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
-import SplashScreen from './splashScreen';
-import SignInUpScreen from './screens/signInUp';
-import HomeScreen from './screens/homeScreen';
-import AddItemScreen from './screens/AddItemScreen';
-import AccountDetailsScreen from './screens/AccountDetailsScreen';
-import ViewAllItemScreen from './screens/ViewAllItemScreen';
-import NotificationsScreen from './screens/NotificationsScreen';
-const BASE_URL = 'https://se-5-project-default-rtdb.firebaseio.com/';
+// Import custom screens for navigation
+import SplashScreen from "./splashScreen";
+import SignInUpScreen from "./screens/signInUp";
+import HomeScreen from "./screens/homeScreen";
+import AddItemScreen from "./screens/AddItemScreen";
+import AccountDetailsScreen from "./screens/AccountDetailsScreen";
+import ViewAllItemScreen from "./screens/ViewAllItemScreen";
+import NotificationsScreen from "./screens/NotificationsScreen";
+
 
 // Create navigators
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
-// Tab Navigator for the bottom tabs
+// ******************** Tab Navigator (Bottom Tabs) ******************** //
 function HomeTabs() {
   return (
     <Tab.Navigator
-    screenOptions={({ route }) => ({
+      screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: '#f8f8f8', borderTopWidth: 0 },
-        tabBarActiveTintColor: '#e91e63',
-        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: { backgroundColor: "#f8f8f8", borderTopWidth: 0 },
+        tabBarActiveTintColor: "#e91e63",
+        tabBarInactiveTintColor: "gray",
         tabBarIcon: ({ color, size }) => {
           let iconName;
-          if (route.name === 'Home') iconName = 'home-outline';
-          else if (route.name === 'Add Item') iconName = 'add-circle-outline';
-          else if (route.name === 'Account') iconName = 'person-outline';
+          if (route.name === "Home") iconName = "home-outline";
+          else if (route.name === "Add Item") iconName = "add-circle-outline";
+          else if (route.name === "Account") iconName = "person-outline";
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
-      
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Add Item" component={AddItemScreen} />
@@ -47,27 +48,25 @@ function HomeTabs() {
   );
 }
 
-// Drawer Navigator for side menu
+// **************** Drawer Navigator (Side Menu Navigation) ************* //
 function DrawerNavigator() {
   return (
     <Drawer.Navigator
       screenOptions={{
         headerShown: true,
         headerStyle: {
-          backgroundColor: 'transparent', // Make the header transparent
-          elevation: 0, // Remove shadow on Android
-          shadowOpacity: 0, // Remove shadow on iOS
-          
+          backgroundColor: "transparent",
+          elevation: 0,
+          shadowOpacity: 0,
         },
         headerTitleStyle: {
-          color: '#000', // Adjust title color as needed
+          color: "#000",
           fontSize: 20,
           left: 70,
-         fontWeight: 'bold' // Optional: adjust font size
+          fontWeight: "bold",
         },
-        headerTransparent: true, // Set header as transparent
+        headerTransparent: true,
       }}
-      
     >
       <Drawer.Screen name="RE' Inventory " component={HomeTabs} />
       <Drawer.Screen name="View Total Items" component={ViewAllItemScreen} />
@@ -77,7 +76,7 @@ function DrawerNavigator() {
   );
 }
 
-// Main App with Stack Navigator
+// *************** Main App with Stack Navigator **************** //
 export default function App() {
   return (
     <NavigationContainer>
@@ -90,18 +89,16 @@ export default function App() {
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="SignInUp" component={SignInUpScreen} />
         <Stack.Screen name="MainApp" component={DrawerNavigator} />
-        {/* <Stack.Screen name="ViewAllItems" component={ViewAllItemScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
+// ********************* Styles ********************** //
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    // backgroundColor: '#d8f8fa ',
-    paddingTop: 20, // Adjust top padding (this can be adjusted for your needs)
-    paddingBottom: 20, // Adjust bottom padding
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   headerTitle: {
     left: 40,
