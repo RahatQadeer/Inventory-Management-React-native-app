@@ -1,16 +1,13 @@
-#******************************\*\*******************************# #******************************\*\*******************************#
+
 
 # **Inventory Management System**
 
-#******************************\*\*******************************#
 
 ## **Group Members**
 
 - **Rahat Qadeer** _(47234)_
 - **Esha Asif** _(45786)_
 
-
-#******************************\*\*******************************#
 
 ## **Project Overview**
 
@@ -37,9 +34,6 @@ Our project, **Inventory Management System**, is a user-friendly application bui
 3. **Authentication System:**
    - Reliable login mechanisms to ensure data security and user privacy.
 
----
-
-#******************************\*\*******************************#
 
 ## **Why Choose Our Solution?**
 
@@ -49,7 +43,8 @@ Streamline your inventory with our **powerful, user-friendly app**:
 - **Real-Time Updates:** Instant data sync with Firebase.
 - **Rock-Solid Security:** Advanced authentication keeps your data safe.
 
-#******************************\*\*******************************# #******************************\*\*******************************#
+  ## **Project Images**
+
 ![1747288899325](https://github.com/user-attachments/assets/4d78b24e-2160-496f-84d4-c66645c1421d)
 
 ![1747288881162](https://github.com/user-attachments/assets/127efa8d-6338-47d8-a95e-4af8a9a25487)
