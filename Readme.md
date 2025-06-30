@@ -50,3 +50,16 @@ Streamline your inventory with our **powerful, user-friendly app**:
 - **Rock-Solid Security:** Advanced authentication keeps your data safe.
 
 #******************************\*\*******************************# #******************************\*\*******************************#
+![1747288899325](https://github.com/user-attachments/assets/4d78b24e-2160-496f-84d4-c66645c1421d)
+
+![1747288881162](https://github.com/user-attachments/assets/127efa8d-6338-47d8-a95e-4af8a9a25487)
+
+![1747288913936](https://github.com/user-attachments/assets/5f4f1604-f451-4c19-82e2-3dc847a57bff)
+
+![1747288929717](https://github.com/user-attachments/assets/176beb35-8cb8-43f1-b2c3-b245d4b3ddba)
+
+![1747288950771](https://github.com/user-attachments/assets/740caa41-0c84-4026-888d-675c250a940a)
+
+
+
+
